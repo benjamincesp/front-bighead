@@ -3,9 +3,7 @@
 const nextConfig = {
   basePath: '',
   staticPageGenerationTimeout: 2000,
-  experimental: {
-    outputStandalone: true,
-  },
+  output: 'standalone',
   pageExtensions: ["js", "jsx", "ts", "tsx"],
 
   async rewrites() {
