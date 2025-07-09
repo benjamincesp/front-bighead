@@ -10,7 +10,9 @@ const nextConfig = {
     return [
       {
         source: '/api/bot',
-        destination: 'http://localhost:5001/bot',
+        destination: process.env.NODE_ENV === 'production' 
+          ? 'https://big-head-eaba7dc1431e.herokuapp.com/bot'
+          : 'http://localhost:5001/bot',
       },
     ]
   },
