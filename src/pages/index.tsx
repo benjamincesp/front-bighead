@@ -67,8 +67,7 @@ export default function IndexPage() {
     setIsLoading(true);
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
-      const response = await fetch(`${apiUrl}/bot`, {
+      const response = await fetch('/api/bot', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
