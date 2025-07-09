@@ -1,0 +1,9 @@
+.containerPrincipal {
+  max-width: 954px;
+  min-height: 350px;
+  height: 100%;
+  text-align: "center";
+  margin: 0 auto;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}

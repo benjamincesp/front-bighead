@@ -1,0 +1,70 @@
+image: atlassian/default-image:4
+
+definitions:
+  steps:
+    - step: &linter
+        name: Lint the Dockerfile
+        image: hadolint/hadolint:latest-debian
+        caches:
+          - docker
+        services:
+          - docker
+        script:
+          - hadolint Dockerfile
+
+pipelines:
+  default:
+    - step: *linter
+  branches:
+    develop:
+      - step: &Build_and_push_image
+          name: Build and Push Image
+          deployment: develop
+          script:
+            - VERSION=$(cat version.txt)
+            - ENVIRONMENT="dev"
+            - IMAGE=$ARTIFACT_REGISTRY_LOCATION/$PROJECT_ID/${TEAM_PROJECT}/${BITBUCKET_REPO_SLUG}/${ENVIRONMENT}
+            - echo $SA_SECRET | base64 --decode | docker login -u _json_key --password-stdin https://$ARTIFACT_REGISTRY_LOCATION
+            - docker build --no-cache . --file Dockerfile --tag ${IMAGE}:${VERSION} --tag ${IMAGE}:latest --tag ${IMAGE}:dev
+            - docker push ${IMAGE}:${VERSION}
+            - docker push ${IMAGE}:latest
+            - docker push ${IMAGE}:dev
+          services:
+            - docker
+          caches:
+            - docker
+    release:
+      - step: &Build_and_push_image
+          name: Build and Push Image
+          deployment: release
+          script:
+            - VERSION=$(cat version.txt)
+            - ENVIRONMENT="qa"
+            - IMAGE=$ARTIFACT_REGISTRY_LOCATION/$PROJECT_ID/${TEAM_PROJECT}/${BITBUCKET_REPO_SLUG}/${ENVIRONMENT}
+            - echo $SA_SECRET | base64 --decode | docker login -u _json_key --password-stdin https://$ARTIFACT_REGISTRY_LOCATION
+            - docker build --no-cache . --file Dockerfile --tag ${IMAGE}:${VERSION} --tag ${IMAGE}:latest --tag ${IMAGE}:qa
+            - docker push ${IMAGE}:${VERSION}
+            - docker push ${IMAGE}:latest
+            - docker push ${IMAGE}:qa
+          services:
+            - docker
+          caches:
+            - docker
+    master:
+      - step: *linter
+      - step: &Build_and_push_image
+          name: Build and Push Imageƒlint
+          deployment: production
+          trigger: manual
+          script:
+            - VERSION=$(cat version.txt)
+            - ENVIRONMENT="prod"
+            - IMAGE=$ARTIFACT_REGISTRY_LOCATION/$PROJECT_ID/${TEAM_PROJECT}/${BITBUCKET_REPO_SLUG}/${ENVIRONMENT}
+            - echo $SA_SECRET | base64 --decode | docker login -u _json_key --password-stdin https://$ARTIFACT_REGISTRY_LOCATION
+            - docker build --no-cache . --file Dockerfile --tag ${IMAGE}:${VERSION} --tag ${IMAGE}:latest --tag ${IMAGE}:prod
+            - docker push ${IMAGE}:${VERSION}
+            - docker push ${IMAGE}:latest
+          services:
+            - docker
+          caches:
+            - docker

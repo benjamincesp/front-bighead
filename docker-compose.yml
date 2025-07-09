@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  production_service:
+    container_name: ${NAME_APP}
+    build:
+      target: runner
+      context: .
+      args:
+        - PORT=${PORT}
+    ports:
+      - "${PORT}:${PORT}"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: "512m"
+        reservations:
+          cpus: "0.25"
+          memory: "256m"

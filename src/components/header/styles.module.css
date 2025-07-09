@@ -1,0 +1,124 @@
+@font-face {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  src: url("/assets/fonts/open-sans/OpenSans-Light.ttf");
+}
+
+.footerLayout {
+  /* position: fixed; */
+  bottom: 0;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 100px 78px;
+  margin-top: auto;
+}
+
+.footerContact {
+  padding: 20px 30px;
+  height: 100%;
+  background-color: #d3ebff;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+}
+
+.communicationChannels {
+  display: flex;
+  flex-direction: column;
+}
+
+.communicationChannelsTitles {
+  color: #004a98;
+  --font-display: "Open Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.communicationChannelsContactOptions {
+  font-size: 14px;
+  color: #004a98;
+  --font-display: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+}
+
+.communicationChannelsOptions {
+  display: flex;
+  gap: 15px;
+}
+
+.communicationChannelsOptionsAux {
+  margin-left: 10px;
+}
+
+.communicationChannelsPhoneNumber {
+  color: #004a98;
+  --font-display: "Open Sans";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.contactUs {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerInformation {
+  height: 100%;
+  width: 100%;
+  background-color: #00539b;
+  padding: 20px 30px;
+  display: grid;
+  grid-template-columns: 35% auto;
+  justify-content: space-between;
+}
+
+.footerInformationText {
+  color: white;
+  text-align: right;
+  --font-display: "Open Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+@media (max-width: 1024px) {
+  .footerLayout {
+    display: unset;
+  }
+
+  .footerInformationText {
+    font-size: 8px;
+  }
+
+  .communicationChannelsTitles {
+    font-size: 10px;
+  }
+
+  .communicationChannelsContactOptions {
+    font-size: 10px;
+  }
+
+  .communicationChannelsOptions {
+    gap: 0;
+    display: unset;
+  }
+
+  .communicationChannelsPhoneNumber {
+    font-size: 12px;
+  }
+
+  .footerContact {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  .communicationChannelsOptionsAux {
+    display: none;
+  }
+}
