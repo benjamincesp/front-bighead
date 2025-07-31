@@ -16,6 +16,7 @@ export default function IndexPage() {
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -92,6 +93,10 @@ export default function IndexPage() {
       ));
     } finally {
       setIsLoading(false);
+      // Mantener el focus en el input después de enviar el mensaje
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 100);
     }
   };
 
@@ -240,6 +245,7 @@ export default function IndexPage() {
             <div className="bg-white border-t border-orange-200 p-4 flex-shrink-0">
               <form onSubmit={sendMessage} className="flex space-x-3">
                 <input
+                  ref={inputRef}
                   type="text"
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
