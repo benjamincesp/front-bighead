@@ -13,7 +13,7 @@ const Header = () => {
           </div>
           <div className={Styles.logoText}>
             <h1>BigHead Food Service</h1>
-            <p>Eventos Gastronómicos 2024</p>
+            <p>Eventos Gastronómicos 2025</p>
           </div>
         </div>
         

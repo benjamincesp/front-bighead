@@ -18,7 +18,7 @@ const Home = () => {
             </svg>
           </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">BigHead Food Service</h1>
-          <p className="text-xl text-orange-600 mb-6">Especialistas en Eventos Gastronómicos 2024</p>
+          <p className="text-xl text-orange-600 mb-6">Especialistas en Eventos Gastronómicos 2025</p>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Bienvenido a BigHead Food Service, tu socio estratégico para eventos gastronómicos excepcionales. 
             Ofrecemos soluciones integrales de catering, organización de eventos y consultoría gastronómica.

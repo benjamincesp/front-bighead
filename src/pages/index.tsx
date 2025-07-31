@@ -107,7 +107,7 @@ export default function IndexPage() {
               </div>
               <h1 className="text-3xl font-bold text-gray-900 mb-2">BigHead</h1>
               <p className="text-lg text-orange-600 font-medium mb-1">Asistente Virtual</p>
-              <p className="text-gray-600">Food Service 2024</p>
+              <p className="text-gray-600">Food Service 2025</p>
               <div className="mt-4 p-3 bg-orange-50 rounded-lg border border-orange-200">
                 <p className="text-sm text-orange-800">
                   Tu asistente especializado en eventos gastronómicos
@@ -158,7 +158,7 @@ export default function IndexPage() {
                 </div>
                 <div className="flex-1">
                   <h2 className="text-xl font-bold">BigHead Assistant</h2>
-                  <p className="text-orange-100 text-sm">Especialista en Food Service 2024</p>
+                  <p className="text-orange-100 text-sm">Especialista en Food Service 2025</p>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
@@ -176,7 +176,7 @@ export default function IndexPage() {
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8zM12 13.5L8.5 16l3.5-2.5L15.5 16 12 13.5z"/>
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">¡Bienvenido al Food Service 2024!</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">¡Bienvenido al Food Service 2025!</h3>
                   <p className="text-gray-600 mb-4">Soy BigHead, tu asistente virtual especializado en eventos gastronómicos.</p>
                   <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 max-w-md mx-auto">
                     <p className="text-sm text-orange-800">
@@ -243,7 +243,7 @@ export default function IndexPage() {
                   type="text"
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
-                  placeholder="Escribe tu mensaje sobre Food Service 2024..."
+                  placeholder="Escribe tu mensaje sobre Food Service 2025..."
                   className="flex-1 px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
                   disabled={isLoading}
                 />

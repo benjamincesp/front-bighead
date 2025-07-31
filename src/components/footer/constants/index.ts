@@ -3,9 +3,9 @@ export const communicationChannels =
 {
     title: "Canales de atención",
     menus: [
-        { href: "https://www.laaraucana.cl/red-de-sucursales/", label: "Red de Sucursales" },
-        { href: "http://ams.beneficioslaaraucana.cl/", label: "Oficinas Móviles" },
-        { href: "https://www.laaraucana.cl/contacto/", label: "Contacto" },
+        // { href: "https://www.laaraucana.cl/red-de-sucursales/", label: "Red de Sucursales" },
+        // { href: "http://ams.beneficioslaaraucana.cl/", label: "Oficinas Móviles" },
+        // { href: "https://www.laaraucana.cl/contacto/", label: "Contacto" },
     ],
 };
 

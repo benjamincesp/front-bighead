@@ -9,12 +9,12 @@ const Footer = () => {
           <div className="footer-info-bighead">
             <img 
               src="/logo-bighead.png" 
-              alt="BigHead Food Service 2024" 
+              alt="BigHead Food Service 2025" 
               className={Styles.logo}
             />
             <div className="footer-info-bighead">
               <h3 className={Styles.footerTitle}>BigHead Food Service</h3>
-              <p className={Styles.footerSubtitle}>Especialistas en Eventos Gastronómicos 2024</p>
+              <p className={Styles.footerSubtitle}>Especialistas en Eventos Gastronómicos 2025</p>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@ const Footer = () => {
       <div className={Styles.footerBottom}>
         <div className={Styles.footerBottomContent}>
           <p className={Styles.copyright}>
-            © Copyright 2024 BigHead Food Service. Todos los derechos reservados.
+            © Copyright 2025 BigHead Food Service. Todos los derechos reservados.
           </p>
           <div className={Styles.footerBottomLinks}>
             <a href="/politicas-privacidad">Políticas de Privacidad</a>
