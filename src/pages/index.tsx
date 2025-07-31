@@ -74,8 +74,14 @@ export default function IndexPage() {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Cookie': 'session=eyJjaGF0X2hpc3RvcnkiOltdfQ.aG0a3A.LQIs_ABaBMp6xXmDsg4MhR2ruwA'
         },
-        body: `Body=${encodeURIComponent(inputMessage)}`
+        body: `Body=${encodeURIComponent(inputMessage)}`,
+        // Agregar timeout y configuración para manejar conexiones inestables
+        signal: AbortSignal.timeout(60000) // 1 minuto timeout
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       const responseText = await response.text();
       const parsedMessage = parseXMLResponse(responseText);
@@ -86,9 +92,20 @@ export default function IndexPage() {
           : msg
       ));
     } catch (error) {
+      console.error('Error en la solicitud:', error);
+      let errorMessage = 'Error: No se pudo conectar con el servicio';
+      
+      if (error instanceof Error) {
+        if (error.name === 'TimeoutError') {
+          errorMessage = 'Error: La solicitud tardó demasiado tiempo';
+        } else if (error.message.includes('ECONNRESET')) {
+          errorMessage = 'Error: Conexión interrumpida, intenta nuevamente';
+        }
+      }
+      
       setMessages(prev => prev.map(msg => 
         msg.id === loadingMessage.id 
-          ? { ...msg, text: 'Error: No se pudo conectar con el servicio', isLoading: false }
+          ? { ...msg, text: errorMessage, isLoading: false }
           : msg
       ));
     } finally {
