@@ -10,7 +10,7 @@ const nextConfig = {
     return [
       {
         source: '/api/bot',
-        destination: 'http://localhost:5001/bot',
+        destination: 'https://big-head-eaba7dc1431e.herokuapp.com/bot',
       },
     ]
   },
