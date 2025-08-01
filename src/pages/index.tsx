@@ -245,7 +245,7 @@ export default function IndexPage() {
                             <span className="text-sm text-gray-500">BigHead está escribiendo...</span>
                           </div>
                         ) : (
-                          <p className="whitespace-pre-wrap text-sm">{message.text}</p>
+                          <div className="whitespace-pre-line text-sm leading-relaxed">{message.text}</div>
                         )}
                       </div>
                       <div className={`text-xs mt-1 ${message.sender === 'user' ? 'text-right text-orange-600' : 'text-gray-500'}`}>
