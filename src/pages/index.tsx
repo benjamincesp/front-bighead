@@ -103,7 +103,6 @@ ${formattedResponse}
   };
 
   const quickResponses = [
-    "Ver Stands Disponibles",
     "Programación",
     "Proceso de Inscripción", 
     "Contacto"
